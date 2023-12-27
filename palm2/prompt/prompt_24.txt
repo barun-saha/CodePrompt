@@ -1,0 +1,5 @@
+Write a class called CustomStack that performs all the stack operations on a list of numbers.
+
+
+Output:
+```python

@@ -1,0 +1,9 @@
+Consider the following existing code:
+
+
+    
+Based on the above code, write a FastAPI POST end point to fetch customer name, location, and date based on ID. The customer ID should be retrieved from the POST request body. Write the complete code, including app creation, SQLite database creation, and creation of the models.
+
+
+Output:
+```python

@@ -1,0 +1,26 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+
+# Read the CSV file
+df = pd.read_csv('data.csv')
+
+# Split the data into x and y values
+x = df.drop('usage', axis=1)
+y = df['usage']
+
+# Split the data into 80:20 train and dev sets
+x_train, x_dev, y_train, y_dev = train_test_split(x, y, test_size=0.2)
+
+# Split the dev set into 50:50 dev and test sets
+x_dev, x_test, y_dev, y_test = train_test_split(x_dev, y_dev, test_size=0.5)
+
+# Use min-max scaler to scale train dataset
+scaler = MinMaxScaler()
+scaler.fit(x_train)
+x_train = scaler.transform(x_train)
+
+# Apply the scaler on the other two datasets
+x_dev = scaler.transform(x_dev)
+x_test = scaler.transform(x_test)
+```

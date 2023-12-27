@@ -1,0 +1,11 @@
+What's wrong with this code?
+
+=====
+!echo 'hello' > tmp.txt
+
+with open('tmp.txt', 'w') as in_file:
+  for line in in_file:
+    print(line)
+=====
+
+Output:

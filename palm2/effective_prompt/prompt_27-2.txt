@@ -1,0 +1,9 @@
+Read a CSV file containing the columns timestamp, humidity, temp, and usage.
+The last column is the target. Split all df into x and y values.
+Split x and y values into 80:20 train and dev sets. Then 50:50 split of dev into dev and test sets.
+Use min-max scaler to scale train dataset. Apply the scaler on the other two datasets.
+
+
+
+Output:
+```python

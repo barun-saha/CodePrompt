@@ -1,0 +1,7 @@
+In the code below, why a_list does not print the numbers in a sorted manner? Fix the code!
+
+
+
+
+Output:
+```python

@@ -1,0 +1,7 @@
+Generate test cases for the following input code:
+
+
+
+
+Output:
+```python

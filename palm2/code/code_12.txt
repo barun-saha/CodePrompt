@@ -1,0 +1,98 @@
+import unittest
+from generate_powerpoint import (
+    remove_slide_number_from_heading,
+    generate_powerpoint_presentation,
+    get_flat_list_of_contents,
+)
+
+
+class TestGeneratePowerpoint(unittest.TestCase):
+
+    def test_remove_slide_number_from_heading(self):
+        test_cases = [
+            ("Slide 1: Introduction", "Introduction"),
+            ("Slide 2: The Problem", "The Problem"),
+            ("Slide 3: The Solution", "The Solution"),
+            ("Slide 4: The Benefits", "The Benefits"),
+            ("Slide 5: The Next Steps", "The Next Steps"),
+        ]
+        for test_case in test_cases:
+            self.assertEqual(remove_slide_number_from_heading(test_case[0]), test_case[1])
+
+    def test_generate_powerpoint_presentation(self):
+        structured_data = """
+        {
+            "title": "My Presentation",
+            "slides": [
+                {
+                    "heading": "Slide 1: Introduction",
+                    "bullet_points": [
+                        "This is the introduction slide.",
+                        "It introduces the topic of the presentation."
+                    ]
+                },
+                {
+                    "heading": "Slide 2: The Problem",
+                    "bullet_points": [
+                        "This slide describes the problem that the presentation is addressing."
+                    ]
+                },
+                {
+                    "heading": "Slide 3: The Solution",
+                    "bullet_points": [
+                        "This slide describes the solution to the problem."
+                    ]
+                },
+                {
+                    "heading": "Slide 4: The Benefits",
+                    "bullet_points": [
+                        "This slide describes the benefits of the solution."
+                    ]
+                },
+                {
+                    "heading": "Slide 5: The Next Steps",
+                    "bullet_points": [
+                        "This slide describes the next steps that need to be taken."
+                    ]
+                }
+            ]
+        }
+        """
+        as_yaml = False
+        slides_template = "default"
+        output_file_name = "test_presentation.pptx"
+        all_headers = generate_powerpoint_presentation(
+            structured_data, as_yaml, slides_template, output_file_name
+        )
+        self.assertEqual(all_headers, ["My Presentation", "Introduction", "The Problem", "The Solution", "The Benefits", "The Next Steps"])
+
+    def test_get_flat_list_of_contents(self):
+        test_cases = [
+            (
+                ["Item 1", "Item 2", "Item 3"],
+                [("Item 1", 0), ("Item 2", 0), ("Item 3", 0)],
+            ),
+            (
+                [
+                    "Item 1",
+                    ["Subitem 1", "Subitem 2"],
+                    "Item 3",
+                ],
+                [("Item 1", 0), ("Subitem 1", 1), ("Subitem 2", 1), ("Item 3", 0)],
+            ),
+            (
+                [
+                    "Item 1",
+                    ["Subitem 1", ["Sub-subitem 1", "Sub-subitem 2"]],
+                    "Item 3",
+                ],
+                [("Item 1", 0), ("Subitem 1", 1), ("Sub-subitem 1", 2), ("Sub-subitem 2", 2), ("Item 3", 0)],
+            ),
+        ]
+        for test_case in test_cases:
+            self.assertEqual(get_flat_list_of_contents(test_case[0]), test_case[1])
+
+
+if __name__ == "__main__":
+    unittest.main()
+```

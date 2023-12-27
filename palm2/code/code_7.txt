@@ -1,0 +1,21 @@
+```python
+def find_median(nums):
+    # sort the list in ascending order
+    nums.sort()
+
+    # if the list has even number of elements, the median is the average of two middle elements
+    if len(nums) % 2 == 0:
+        median = (nums[len(nums) // 2] + nums[len(nums) // 2 - 1]) / 2
+        return median, len(nums) // 2 - 1
+
+    # if the list has odd number of elements, the median is the middle element
+    else:
+        median = nums[len(nums) // 2]
+        return median, len(nums) // 2
+
+
+nums = [4, 7, 2, 9, 5]
+median, index = find_median(nums)
+print("Median:", median)
+print("Index of median:", index)
+```

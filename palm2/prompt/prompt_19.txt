@@ -1,0 +1,8 @@
+Fix the error.
+
+=====
+items = sorted(items, lambda x: x[1], reverse=True)
+=====
+
+Output:
+```python

@@ -1,0 +1,214 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "type": "write",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": "Failed to use the HuggingFaceHub inference endpoint with LangChain."
+    },
+    {
+      "id": 2,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 3,
+      "type": "write",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": "Did not generate any code, only produced a list of strings."
+    },
+    {
+      "id": 4,
+      "type": "complete",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": "The prompt for Q3 is framed in a more concrete way. The method is defined after its called, but this is ignored."
+    },
+    {
+      "id": 5,
+      "type": "complete",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": "One of the output line of codes is erroneous but can be commented out."
+    },
+    {
+      "id": 6,
+      "type": "complete",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 7,
+      "type": "write",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": "Failed to return the median index based on the original unsorted list."
+    },
+    {
+      "id": 8,
+      "type": "complete",
+      "max_trials": 3,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 9,
+      "type": "fix",
+      "max_trials": 2,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 10,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 11,
+      "type": "complete",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": "Significant errors in the code, requiring some effort to fix them."
+    },
+    {
+      "id": 12,
+      "type": "complete",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 13,
+      "type": "complete",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 14,
+      "type": "fix",
+      "max_trials": 3,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 15,
+      "type": "question",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": "The fix and question types are related."
+    },
+    {
+      "id": 16,
+      "type": "question",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 17,
+      "type": "fix",
+      "max_trials": 3,
+      "correct_output": null,
+      "comment": "Although it does not fix the problem, it explains in details how to solve it."
+    },
+    {
+      "id": 18,
+      "type": "question",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 19,
+      "type": "fix",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 20,
+      "type": "write",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": "Failed to generate any code."
+    },
+    {
+      "id": 21,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 22,
+      "type": "write",
+      "max_trials": 2,
+      "correct_output": null,
+      "comment": "The first version created a name conflict."
+    },
+    {
+      "id": 23,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 24,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 25,
+      "type": "complete",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": null
+    },
+    {
+      "id": 26,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 27,
+      "type": "write",
+      "max_trials": 3,
+      "correct_output": null,
+      "comment": "Assuming that the timestamp is provided as floating point numbers and not date-time values."
+    },
+    {
+      "id": 28,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 29,
+      "type": "write",
+      "max_trials": 1,
+      "correct_output": null,
+      "comment": null
+    },
+    {
+      "id": 30,
+      "type": "write",
+      "max_trials": 3,
+      "correct_output": "no",
+      "comment": "With F(0) = 1, added n + 1 numbers instead of n."
+    }
+  ]
+}

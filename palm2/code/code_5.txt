@@ -1,0 +1,57 @@
+import unittest
+from dataclasses import dataclass
+from datetime import datetime
+
+import time
+from unittest.mock import patch
+
+from src.device import Configuration, Device
+
+
+@dataclass
+class Configuration:
+    id: int
+    text: str
+
+
+@dataclass
+class Device:
+    id: int
+    name: str
+    config: list[Configuration]
+    timestamp: float
+
+    def add_config(self, config: Configuration):
+        self.config.append(config)
+        self.timestamp = time.time()
+
+    def age(self):
+        return time.time() - self.timestamp
+
+
+class TestDevice(unittest.TestCase):
+
+    def test_add_config(self):
+        device = Device(1, "Test Device", [], 0)
+        config = Configuration(1, "Test Config")
+        device.add_config(config)
+        self.assertEqual(device.config, [config])
+        self.assertGreater(device.timestamp, 0)
+
+    def test_age(self):
+        device = Device(1, "Test Device", [], 0)
+        self.assertEqual(device.age(), 0)
+        time.sleep(1)
+        self.assertGreater(device.age(), 0)
+
+    @patch('time.time')
+    def test_age_with_mocked_time(self, mock_time):
+        mock_time.return_value = 1000
+        device = Device(1, "Test Device", [], 0)
+        self.assertEqual(device.age(), 0)
+        mock_time.return_value = 1001
+        self.assertEqual(device.age(), 1)
+
+if __name__ == '__main__':
+    unittest.main()
+```

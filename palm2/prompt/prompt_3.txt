@@ -1,0 +1,4 @@
+Given an input list, which contains strings or list of strings. Flatten the list so that the output list contains all the strings, no list.
+
+Output:
+```python

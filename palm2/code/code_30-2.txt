@@ -1,0 +1,11 @@
+def fibonacci_sum(n):
+    a, b = 0, 1
+    sum = 0
+    for i in range(n):
+        a, b = b, a + b
+        sum += a
+    return sum
+
+
+print(fibonacci_sum(5))
+```

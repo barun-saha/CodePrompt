@@ -1,0 +1,5 @@
+Given a list of unsorted numbers, write a function to find the median value. Also, return the index of the median value in the original list.
+
+
+Output:
+```python

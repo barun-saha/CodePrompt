@@ -1,0 +1,21 @@
+from flask import Flask, request, jsonify
+from PIL import Image
+import base64
+import io
+
+app = Flask(__name__)
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if request.method == 'POST':
+        image = request.files['image']
+        image = Image.open(image)
+        image = image.convert('L')
+        buffered = io.BytesIO()
+        image.save(buffered, format="PNG")
+        img_str = base64.b64encode(buffered.getvalue()).decode('utf-8')
+        return jsonify({'image': img_str})
+
+if __name__ == '__main__':
+    app.run()
+```

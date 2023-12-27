@@ -1,0 +1,5 @@
+Given x_train, x_dev, y_train, y_dev, y_dev, and y_test, build an XGBoost classifier with 100 trees. Plot the ROC curve with test data.
+
+
+Output:
+```python

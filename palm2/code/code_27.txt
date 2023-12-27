@@ -1,0 +1,30 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+
+# Read the CSV file
+df = pd.read_csv('data.csv')
+
+# Split the data into 80:10:10 train, dev, and test sets
+train_df, dev_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
+dev_df, test_df = train_test_split(dev_df, test_size=0.5, random_state=42)
+
+# Use min-max scaler to scale train dataset
+scaler = MinMaxScaler()
+scaler.fit(train_df[['humidity', 'temp']])
+train_df[['humidity', 'temp']] = scaler.transform(train_df[['humidity', 'temp']])
+
+# Apply the scaler on the other two datasets
+dev_df[['humidity', 'temp']] = scaler.transform(dev_df[['humidity', 'temp']])
+test_df[['humidity', 'temp']] = scaler.transform(test_df[['humidity', 'temp']])
+
+# Split all dfs into x and y values
+train_x = train_df.drop('usage', axis=1)
+train_y = train_df['usage']
+
+dev_x = dev_df.drop('usage', axis=1)
+dev_y = dev_df['usage']
+
+test_x = test_df.drop('usage', axis=1)
+test_y = test_df['usage']
+```

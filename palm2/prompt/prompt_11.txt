@@ -1,0 +1,18 @@
+Consider the following existing code:
+
+=====
+Code:
+
+class Customer(BaseModel):
+    cid: int
+    name: str
+    description: str | None = None
+    date_of_join: str
+    location: str
+=====
+    
+Based on the above code, write a FastAPI POST end point to fetch customer name, location, and date based on ID. The customer ID should be retrieved from the POST request body. 
+
+
+Output:
+```python

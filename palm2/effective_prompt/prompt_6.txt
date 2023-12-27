@@ -1,0 +1,15 @@
+Complete the following code:
+
+
+
+
+
+# Create the tables in a SQLite 3 database
+
+
+# Add CRUD operations for each models
+
+
+
+Output:
+```python

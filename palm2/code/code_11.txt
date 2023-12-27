@@ -1,0 +1,22 @@
+from fastapi import FastAPI, Request, Body
+from pydantic import BaseModel
+
+class Customer(BaseModel):
+    cid: int
+    name: str
+    description: str | None = None
+    date_of_join: str
+    location: str
+
+app = FastAPI()
+
+@app.post("/customer")
+async def get_customer(request: Request, customer_id: int = Body(...)):
+    customer = await request.app.state.db.fetch_one(
+        "SELECT name, location, date_of_join FROM customers WHERE cid = :cid",
+        {"cid": customer_id},
+    )
+    if customer is None:
+        return {"error": "Customer not found"}
+    return {"name": customer["name"], "location": customer["location"], "date_of_join": customer["date_of_join"]}
+```

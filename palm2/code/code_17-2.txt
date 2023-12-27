@@ -1,0 +1,7 @@
+```
+
+The reason why `a_list` does not print the numbers in a sorted manner is that the `sorted()` function does not modify the original list. It only returns a new list with the elements in sorted order. To sort the original list, you can use the `sort()` method.
+
+Here is the fixed code:
+
+```

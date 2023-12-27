@@ -1,0 +1,29 @@
+Add documentation string to the following code:
+
+=====
+llm = HuggingFaceHub(
+    repo_id=LLM_MODEL_NAME,
+    huggingfacehub_api_token=HUGGINGFACEHUB_API_TOKEN,
+    model_kwargs={'temperature': 0.1, 'max_length': 100}
+)
+# print(llm)
+
+def generate_summary(poem: str) -> str:
+    print(prompt.format(poem=poem))
+    summary = llm(prompt.format(poem=poem))
+
+    return summary
+
+
+def generate_image_from_text(text: str) -> PIL.Image.Image:
+    with torch.inference_mode():
+        output_img = pipeline(
+            text,
+            num_inference_steps=Config.DIFFUSION_NUM_INFERENCE_STEPS).images[0]
+        print(output_img)
+
+        return output_img
+=====
+
+Output:
+```python

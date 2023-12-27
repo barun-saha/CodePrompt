@@ -1,0 +1,4 @@
+Create a Flask app, which allows users to upload images. The image is converted to grayscale and returned back to the user as base 64 data.
+
+Output:
+```python

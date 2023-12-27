@@ -1,0 +1,19 @@
+Complete the following Python code:
+
+items = [
+	'Item 1',
+	'Item 2',
+	[
+		'Item 2a',
+		'Item 2b',
+		[
+			'Item 2b1',
+		],
+		'Item 2c',
+	],
+]
+
+output_list = flatten_nested_list(items)
+
+
+def flatten_nested_list(input_list) -> List[str]:

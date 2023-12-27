@@ -1,0 +1,6 @@
+Add documentation string to the following code:
+
+
+
+Output:
+```python

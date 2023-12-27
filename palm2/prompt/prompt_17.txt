@@ -1,0 +1,11 @@
+Fix the code so that the numbers in the list are sorted:
+
+=====
+a_list = [30, 10, 20, 5, 7]
+sorted(a_list)
+print(a_list)
+=====
+
+
+Output:
+```python

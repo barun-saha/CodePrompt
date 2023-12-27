@@ -1,0 +1,41 @@
+import streamlit as st
+from langchain import LangChain
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+# Load the tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+
+# Create a LangChain instance
+langchain = LangChain(verbose=True)
+
+# Define the function to get the sentiment
+def get_sentiment(text):
+    # Tokenize the text
+    inputs = tokenizer(text, return_tensors="pt")
+
+    # Get the sentiment
+    outputs = model(**inputs)
+    logits = outputs.logits
+    predictions = torch.argmax(logits, dim=-1)
+
+    # Return the sentiment
+    if predictions == 0:
+        return "Negative"
+    elif predictions == 1:
+        return "Positive"
+
+# Create the Streamlit app
+st.title("Sentiment Analysis App")
+
+# Create the text box
+text = st.text_input("Enter a sentence")
+
+# Create the button
+if st.button("Get Sentiment"):
+    # Get the sentiment
+    sentiment = get_sentiment(text)
+
+    # Display the sentiment
+    st.label(f"Sentiment: {sentiment}")
+```

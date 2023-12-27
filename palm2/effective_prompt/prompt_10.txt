@@ -1,0 +1,5 @@
+Write a method that takes a Base 64-encoded image and displays the image in a Streamlit app.
+
+
+Output:
+```python

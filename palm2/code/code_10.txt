@@ -1,0 +1,17 @@
+import streamlit as st
+import base64
+from PIL import Image
+import io
+
+def display_base64_image(base64_image):
+    # Decode the Base64-encoded image
+    image_bytes = base64.b64decode(base64_image)
+    # Convert the bytes to an Image object
+    image = Image.open(io.BytesIO(image_bytes))
+    # Display the image in the Streamlit app
+    st.image(image)
+
+# Example usage
+base64_image = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2P4//8/A5jZ2sXoHcnJqpw0J6u26o9LOCdx9M33n8+j53B26t4X+4X+E4EAAAAASUVORK5CYII="
+display_base64_image(base64_image)
+```

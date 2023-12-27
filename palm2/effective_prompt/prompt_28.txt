@@ -1,0 +1,6 @@
+Use keras to build an LSTM network with three layers containing 50, 30, and 10 nodes. The input has 10 time steps and 32 features. The output dim is 1.
+
+
+
+Output:
+```python

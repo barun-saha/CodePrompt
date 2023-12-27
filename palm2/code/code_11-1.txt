@@ -1,0 +1,36 @@
+```python
+from fastapi import FastAPI, Request, HTTPException, Body
+from pydantic import BaseModel
+from typing import Optional
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class Customer(BaseModel):
+    cid: int
+    name: str
+    description: str | None = None
+    date_of_join: str
+    location: str
+
+app = FastAPI()
+
+engine = create_engine('sqlite:///./customers.db')
+Session = sessionmaker(bind=engine)
+Base.metadata.create_all(engine)
+
+@app.post("/customer")
+async def get_customer(request: Request, customer_id: int = Body(...)):
+    try:
+        session = Session()
+        customer = session.query(Customer).filter(Customer.cid == customer_id).first()
+        if customer is None:
+            raise HTTPException(status_code=404, detail="Customer not found")
+        return {"name": customer.name, "location": customer.location, "date_of_join": customer.date_of_join}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="An error occurred")
+    finally:
+        session.close()
+```

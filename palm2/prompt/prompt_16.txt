@@ -1,0 +1,10 @@
+How do I fix this error?
+
+=====
+File "<ipython-input-5-d5486b9c761f>", line 1
+    data = '''A triple-quoted string''
+           ^
+SyntaxError: incomplete input
+=====
+
+Output:

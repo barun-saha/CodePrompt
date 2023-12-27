@@ -1,0 +1,29 @@
+import xgboost as xgb
+from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
+
+# Create the parameter dictionary
+params = {'n_estimators': 100}
+
+# Create the XGBoost classifier
+model = xgb.XGBClassifier(**params)
+
+# Train the model
+model.fit(x_train, y_train)
+
+# Predict the probabilities of the test data
+y_score = model.predict_proba(x_test)[:, 1]
+
+# Calculate the ROC curve and AUC
+fpr, tpr, thresholds = roc_curve(y_test, y_score)
+roc_auc = auc(fpr, tpr)
+
+# Plot the ROC curve
+plt.figure()
+plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve for XGBoost Classifier')
+plt.legend()
+plt.show()
+```

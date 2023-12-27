@@ -1,0 +1,15 @@
+Find and fix all errors, including data type conversions, in the following code:
+
+=====
+print('Enter a number:')
+x = input()
+
+if x = 10:
+	print('X is 10')
+	
+for i in range(0, x):
+print(i)
+=====
+
+Output:
+```python

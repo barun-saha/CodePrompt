@@ -1,0 +1,30 @@
+Complete the following code:
+
+
+class Device:
+    id: int
+    name: str
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+
+
+
+class Configuration:
+    id: int
+    name: str
+	
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	text = db.Column(db.String(200), nullable=False)
+    device_id = db.Column(db.Integer, db.ForeignKey('device.id'), nullable=False)
+
+
+# Create the tables in a SQLite 3 database
+
+
+# Add CRUD operations for each models
+
+
+
+Output:
+```python

@@ -1,0 +1,31 @@
+Generate test cases for the following input code:
+
+=====
+import time
+from dataclasses import dataclass
+
+
+@dataclass
+class Configuration:
+    id: int
+    text: str
+
+
+@dataclass
+class Device:
+    id: int
+    name: str
+    config: list[Configuration]
+    timestamp: float
+    
+    def add_config(self, config: Configuration):
+        self.config.append(config)
+        self.timestamp = time.time()
+    
+    def age(self):
+        return time.time() - self.timestamp
+=====
+
+
+Output:
+```python

@@ -1,0 +1,21 @@
+The code shown below throws the following error:
+ValueError: Input 0 of layer "conv2d_1" is incompatible with the layer: expected min_ndim=4, found ndim=3. Full shape received: (None, 64, 64)
+
+Fix the code.
+
+
+from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Multiply
+
+
+# The CNN
+img_input = Input(shape=(64, 64))
+x1 = Conv2D(8, 3, padding='same')(img_input)
+x1 = MaxPooling2D()(x1)
+x1 = Conv2D(16, 3, padding='same')(x1)
+x1 = MaxPooling2D()(x1)
+x1 = Flatten()(x1)
+x1 = Dense(32, activation='tanh')(x1)
+
+
+Output:
+```python

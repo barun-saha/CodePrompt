@@ -1,0 +1,26 @@
+from bs4 import BeautifulSoup
+import requests
+from transformers import pipeline
+
+url = 'https://en.wikipedia.org/wiki/Large_language_model'
+
+# Create an HTML parser using Beautiful Soup 4
+response = requests.get(url)
+soup = BeautifulSoup(response.content, "html.parser")
+
+# For the given URL, extract all paragraphs from the Web page and store them in a list called input_paragraphs
+input_paragraphs = []
+for paragraph in soup.find_all("p"):
+    input_paragraphs.append(paragraph.text)
+
+# Merge all the paragraphs together
+input_text = " ".join(input_paragraphs)
+
+# Create a Hugging Face pipeline for text summarization and use T5-small as the model
+summarizer = pipeline("summarization")
+
+# Summarize the text retrieved from the URL
+summary = summarizer(input_text, min_length=120, max_length=200)
+
+print(summary[0]['summary_text'])
+```

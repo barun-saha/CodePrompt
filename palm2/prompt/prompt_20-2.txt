@@ -1,0 +1,5 @@
+Write a method called display_values(). It takes an arbitrary number of tuples as input. Iterate over each input tuple and print it.
+
+
+Output:
+```python

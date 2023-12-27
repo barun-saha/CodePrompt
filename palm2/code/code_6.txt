@@ -1,0 +1,98 @@
+class Device:
+    id: int
+    name: str
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+
+
+
+class Configuration:
+    id: int
+    name: str
+	
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	text = db.Column(db.String(200), nullable=False)
+    device_id = db.Column(db.Integer, db.ForeignKey('device.id'), nullable=False)
+
+
+# Create the tables in a SQLite 3 database
+db.create_all()
+
+
+# Add CRUD operations for each models
+@app.route('/device', methods=['POST'])
+def create_device():
+    if request.method == 'POST':
+        name = request.form.get('name')
+
+        device = Device(name=name)
+
+        db.session.add(device)
+        db.session.commit()
+
+        return redirect(url_for('index'))
+
+
+@app.route('/device/<int:id>', methods=['GET', 'POST'])
+def read_device(id):
+    device = Device.query.get(id)
+
+    if request.method == 'POST':
+        device.name = request.form.get('name')
+
+        db.session.commit()
+
+        return redirect(url_for('index'))
+
+    return render_template('device.html', device=device)
+
+
+@app.route('/device/<int:id>/delete', methods=['POST'])
+def delete_device(id):
+    device = Device.query.get(id)
+
+    db.session.delete(device)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+
+@app.route('/configuration', methods=['POST'])
+def create_configuration():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        device_id = request.form.get('device_id')
+
+        configuration = Configuration(name=name, device_id=device_id)
+
+        db.session.add(configuration)
+        db.session.commit()
+
+        return redirect(url_for('index'))
+
+
+@app.route('/configuration/<int:id>', methods=['GET', 'POST'])
+def read_configuration(id):
+    configuration = Configuration.query.get(id)
+
+    if request.method == 'POST':
+        configuration.name = request.form.get('name')
+        configuration.device_id = request.form.get('device_id')
+
+        db.session.commit()
+
+        return redirect(url_for('index'))
+
+    return render_template('configuration.html', configuration=configuration)
+
+
+@app.route('/configuration/<int:id>/delete', methods=['POST'])
+def delete_configuration(id):
+    configuration = Configuration.query.get(id)
+
+    db.session.delete(configuration)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+```

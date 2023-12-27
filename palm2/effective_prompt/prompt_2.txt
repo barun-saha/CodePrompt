@@ -1,0 +1,4 @@
+Create a Streamlit app with a text box reads in the name of a city. When a button is clicked, the current weather of the city is fetched and displayed. Use appropriate weather API for this purpose.
+
+Output:
+```python

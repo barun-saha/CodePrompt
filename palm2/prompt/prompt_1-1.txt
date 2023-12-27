@@ -1,0 +1,4 @@
+Create a Streamlit app with a text box, a button, and a label. When the button is clicked, the sentiment identified from the text should be displayed in the label. Use LangChain and HuggingFaceHub for this purpose. The HF API key should be read from an environment variable.
+
+Output:
+```python

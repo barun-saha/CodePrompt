@@ -1,0 +1,28 @@
+```python
+items = [
+	'Item 1',
+	'Item 2',
+	[
+		'Item 2a',
+		'Item 2b',
+		[
+			'Item 2b1',
+		],
+		'Item 2c',
+	],
+]
+
+output_list = flatten_nested_list(items)
+
+
+def flatten_nested_list(input_list) -> List[str]:
+    flattened_list = []
+    for item in input_list:
+        if isinstance(item, list):
+            flattened_list.extend(flatten_nested_list(item))
+        else:
+            flattened_list.append(item)
+    return flattened_list
+
+print(output_list)
+```

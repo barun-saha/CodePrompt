@@ -1,0 +1,44 @@
+from flask import Flask, request, redirect, url_for, render_template
+from werkzeug.utils import secure_filename
+from PIL import Image
+from io import BytesIO
+from sqlalchemy import create_engine, Column, Integer, String, LargeBinary
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class ImageData(Base):
+    __tablename__ = 'images'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    image = Column(LargeBinary)
+
+engine = create_engine('sqlite:///images.db')
+Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session()
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        file = request.files['image']
+        if file:
+            filename = secure_filename(file.filename)
+            image = Image.open(file)
+            image_bytes = BytesIO()
+            image.save(image_bytes, format='PNG')
+            image_data = ImageData(name=filename, image=image_bytes.getvalue())
+            session.add(image_data)
+            session.commit()
+            return redirect(url_for('index'))
+
+    images = session.query(ImageData).all()
+    return render_template('index.html', images=images)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```

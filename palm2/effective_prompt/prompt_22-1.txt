@@ -1,0 +1,4 @@
+Create a Flask app, which allows users to upload images. The uploaded image will be stored in a database, based on a data model called ImageData.
+
+Output:
+```python

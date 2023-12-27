@@ -1,0 +1,5 @@
+Write a function to find the sum of first n Fibonacci numbers without using recursion. The first number is 0. The second number is 1.
+
+
+Output:
+```python

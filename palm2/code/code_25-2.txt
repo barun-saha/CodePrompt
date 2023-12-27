@@ -1,0 +1,14 @@
+import pandas as pd
+
+# Read weather.csv containing the columns date, temperature, and humidity separated by pipes
+
+df = pd.read_csv('weather.csv', sep='|')
+
+# Parse date as datetime value
+
+df['date'] = pd.to_datetime(df['date'])
+
+# Store the average values of each column aggregated by day in df
+
+df = df.resample('D').mean()
+```

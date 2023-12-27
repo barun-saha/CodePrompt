@@ -1,0 +1,8 @@
+import pandas as pd
+
+# Read weather.csv containing the columns date, temperature, and humidity separated by pipes
+df = pd.read_csv('weather.csv', sep='|')
+
+# Store the average values aggregated by day in df
+df = df.groupby('date').mean()
+```

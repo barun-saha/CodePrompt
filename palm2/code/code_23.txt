@@ -1,0 +1,5 @@
+import numpy as np
+
+arr = np.array([1, 22, 333, 4444], dtype=np.float)
+print(arr)
+```

@@ -1,0 +1,28 @@
+import streamlit as st
+from langchain import Pipeline
+from huggingface_hub import HfApi
+
+# Load the LangChain pipeline
+nlp = Pipeline("sentiment-analysis")
+
+# Get the HF API key from the environment variable
+hf_api_key = os.environ.get("HF_API_KEY")
+
+# Create a Streamlit app
+st.title("Sentiment Analysis App")
+
+# Create a text box for the user to input text
+text = st.text_input("Enter text to analyze:")
+
+# Create a button for the user to click to analyze the text
+if st.button("Analyze"):
+
+    # Use the LangChain pipeline to analyze the text
+    result = nlp(text)
+
+    # Get the sentiment from the result
+    sentiment = result["sentiment"]
+
+    # Display the sentiment in the label
+    st.label(f"Sentiment: {sentiment}")
+```

@@ -1,0 +1,5 @@
+A df contains the timestamp, humidity, and temperature columns. Mask all humidity values greater than 100 to 100.
+
+
+Output:
+```python

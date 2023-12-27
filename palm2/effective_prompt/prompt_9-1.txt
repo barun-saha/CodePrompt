@@ -1,0 +1,11 @@
+The code shown below throws the following error:
+
+
+Fix the code.
+
+
+
+
+
+Output:
+```python

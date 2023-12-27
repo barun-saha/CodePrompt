@@ -1,0 +1,15 @@
+Regenerate the following code by fixing all kind of errors:
+
+=====
+print('Enter a number:')
+x = input()
+
+if x = 10:
+	print('X is 10')
+	
+for i in range(0, x):
+print(i)
+=====
+
+Output:
+```python

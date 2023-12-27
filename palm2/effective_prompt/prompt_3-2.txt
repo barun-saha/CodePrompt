@@ -1,0 +1,4 @@
+Given an input list, which contains strings or nested lists of strings. The nesting can go up to any level, which is unknown. Write code to flatten the input list so that the output list contains all the string elements and only the string elements.
+
+Output:
+```python

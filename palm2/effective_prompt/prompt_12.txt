@@ -1,0 +1,6 @@
+Generate appropriate test cases for the following existing code:
+
+
+
+Output:
+```python

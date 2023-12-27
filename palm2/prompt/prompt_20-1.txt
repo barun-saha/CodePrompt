@@ -1,0 +1,5 @@
+Write a function called display_values. The function can take an arbitrary number of tuples as input. Iterate over each input tuple and print the first and the second elements.
+
+
+Output:
+```python
